@@ -1,6 +1,6 @@
 {
-  "name": "serverless-webpack",
-  "version": "5.13.0",
+  "name": "@npatel2/serverless-webpack",
+  "version": "5.13.0-pnpmfix.0",
   "description": "Serverless plugin to bundle your javascript with Webpack",
   "main": "index.js",
   "types": "index.d.ts",

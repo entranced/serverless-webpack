@@ -158,7 +158,7 @@ describe('npm', () => {
             expect(Utils.spawnProcess).toHaveBeenCalledTimes(1);
             expect(Utils.spawnProcess).toHaveBeenCalledWith(
               expect.stringMatching(/^npm/),
-              ['ls', '-prod', '-json', '-depth=10'],
+              ['ls', '--omit=dev', '-json', '-depth=10'],
               { cwd: 'myPath' }
             );
             expect(fseMock.pathExistsSync).toHaveBeenCalledWith(`myPath${sep}package-lock.json`);
@@ -174,7 +174,7 @@ describe('npm', () => {
             expect(Utils.spawnProcess).toHaveBeenCalledTimes(1);
             expect(Utils.spawnProcess).toHaveBeenCalledWith(
               expect.stringMatching(/^npm/),
-              ['ls', '-prod', '-json', '-depth=1'],
+              ['ls', '--omit=dev', '-json', '-depth=1'],
               { cwd: 'myPath' }
             );
             expect(fseMock.pathExistsSync).toHaveBeenCalledWith(`myPath${sep}package-lock.json`);
@@ -194,7 +194,7 @@ describe('npm', () => {
             expect(Utils.spawnProcess).toHaveBeenCalledTimes(1);
             expect(Utils.spawnProcess).toHaveBeenCalledWith(
               expect.stringMatching(/^npm/),
-              ['ls', '-prod', '-json', '-depth=1'],
+              ['ls', '--omit=dev', '-json', '-depth=1'],
               { cwd: 'myPath' }
             );
             expect(fseMock.pathExistsSync).toHaveBeenCalledWith(`myPath${sep}package-lock.json`);
@@ -278,7 +278,7 @@ describe('npm', () => {
         expect(Utils.spawnProcess).toHaveBeenCalledTimes(1);
         expect(Utils.spawnProcess).toHaveBeenCalledWith(
           expect.stringMatching(/^npm/),
-          ['ls', '-prod', '-json', '-depth=1'],
+          ['ls', '--omit=dev', '-json', '-depth=1'],
           { cwd: 'myPath' }
         );
         return null;
@@ -295,7 +295,7 @@ describe('npm', () => {
           expect(Utils.spawnProcess).toHaveBeenCalledTimes(1),
           expect(Utils.spawnProcess).toHaveBeenCalledWith(
             expect.stringMatching(/^npm/),
-            ['ls', '-prod', '-json', '-depth=1'],
+            ['ls', '--omit=dev', '-json', '-depth=1'],
             { cwd: 'myPath' }
           )
         ])
@@ -307,7 +307,8 @@ describe('npm', () => {
       [
         'npm ERR! extraneous: sinon@2.3.8 ./babel-dynamically-entries/node_modules/serverless-webpack/node_modules/sinon',
         'npm ERR! missing: internalpackage-1@1.0.0, required by internalpackage-2@1.0.0',
-        'npm ERR! peer dep missing: sinon@2.3.8'
+        'npm ERR! peer dep missing: sinon@2.3.8',
+        'npm ERR! invalid: axios@1.6.8 ./node_modules/@zz/test-summary/node_modules/axios'
       ],
       '\n'
     );
@@ -316,7 +317,8 @@ describe('npm', () => {
       problems: [
         'npm ERR! extraneous: sinon@2.3.8 ./babel-dynamically-entries/node_modules/serverless-webpack/node_modules/sinon',
         'npm ERR! missing: internalpackage-1@1.0.0, required by internalpackage-2@1.0.0',
-        'npm ERR! peer dep missing: sinon@2.3.8'
+        'npm ERR! peer dep missing: sinon@2.3.8',
+        'npm ERR! invalid: axios@1.6.8 ./node_modules/@zz/test-summary/node_modules/axios'
       ],
       dependencies: {
         '@scoped/vendor': '1.0.0',
@@ -336,7 +338,7 @@ describe('npm', () => {
           expect(Utils.spawnProcess).toHaveBeenCalledTimes(1),
           expect(Utils.spawnProcess).toHaveBeenCalledWith(
             expect.stringMatching(/^npm/),
-            ['ls', '-prod', '-json', '-depth=1'],
+            ['ls', '--omit=dev', '-json', '-depth=1'],
             { cwd: 'myPath' }
           )
         ])
@@ -385,7 +387,7 @@ describe('npm', () => {
           expect(Utils.spawnProcess).toHaveBeenCalledTimes(1),
           expect(Utils.spawnProcess).toHaveBeenCalledWith(
             expect.stringMatching(/^npm/),
-            ['ls', '-prod', '-json', '-depth=1'],
+            ['ls', '--omit=dev', '-json', '-depth=1'],
             { cwd: 'myPath' }
           )
         ])
